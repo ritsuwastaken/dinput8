@@ -1,15 +1,21 @@
 cmake_minimum_required(VERSION 3.11...3.30)
 include(FetchContent)
 
-project(dinput8 VERSION 1.0 LANGUAGES CXX)
+project(dinput8 VERSION 1.0.1 LANGUAGES CXX)
 
-if (NOT MSVC)
+if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
+    message(FATAL_ERROR "This project must be built for 32-bit.")
+endif()
+
+if(NOT MSVC)
     message(FATAL_ERROR "This project must be built with MSVC.")
 endif()
 
-if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
-    message(FATAL_ERROR "This project must be built as a 32-bit binary.")
-endif()
+add_compile_options(
+    $<$<CONFIG:>:/MT>
+    $<$<CONFIG:Debug>:/MTd>
+    $<$<CONFIG:Release>:/MT>
+)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
