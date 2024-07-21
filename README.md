@@ -4,7 +4,7 @@ This is a proxy library that fixes a few issues in older L2 clients
 - Skips `The game may not be consistent because AGP is deactivated. Please activate AGP for consistancy.` warning.
 > ❗ You won't be able to adjust the brightness via the in-game menu or `l2.ini`. Use [ReShade](https://reshade.me/) instead.
 > #### ReShade settings   
-> Select `Level.fx` (installed by default), set **Black points: 0, White points: 140**. This will look similar to the game's default brightness.
+> Select `Levels.fx` (installed by default), set **Black point: 0, White point: 140**. This will look similar to the game's default brightness.
 
 ## Download
 Get the latest version from [Releases](https://github.com/ritsuwastaken/dinput8/releases).
