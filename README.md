@@ -2,13 +2,15 @@
 This is a proxy library that fixes a few issues in older L2 clients
 - Blocks API calls to [SetDeviceGammaRamp](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setdevicegammaramp) from `d3ddrv.dll` to prevent changes to the system brightness.  
 - Skips `The game may not be consistent because AGP is deactivated. Please activate AGP for consistancy.` warning.
->❗ You won't be able to set the brightness with the in-game menu nor via `l2.ini` editing. Use [ReShade](https://reshade.me/) instead.
+> ❗ You won't be able to adjust the brightness via the in-game menu or `l2.ini`. Use [ReShade](https://reshade.me/) instead.
+> #### ReShade settings   
+> Select `Level.fx` (installed by default), set **Black points: 0, White points: 140**. This will look similar to the game's default brightness.
 
 ## Download
 Get the latest version from [Releases](https://github.com/ritsuwastaken/dinput8/releases).
 
 ## Usage
-Put into `system` folder of L2.
+Put `dinput8.dll` into `system` folder of L2.
 
 ## Build
 - [cmake](https://cmake.org/download/) >= 3.11
