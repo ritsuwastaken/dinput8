@@ -9,5 +9,6 @@ HRESULT WINAPI ProxyDllCanUnloadNow();
 HRESULT WINAPI ProxyDllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppv);
 HRESULT WINAPI ProxyDllRegisterServer();
 HRESULT WINAPI ProxyDllUnregisterServer();
+LPCDIDATAFORMAT WINAPI ProxyGetdfDIJoystick();
 
-#endif
+#endif // DINPUT8_PROXY_H
