@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.11...3.30)
 include(FetchContent)
 
-project(dinput8 VERSION 1.0.1 LANGUAGES CXX)
+project(dinput8 VERSION 1.1.0 LANGUAGES CXX)
 
 if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
     message(FATAL_ERROR "This project must be built for 32-bit.")
