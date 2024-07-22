@@ -1,5 +1,5 @@
-LIBRARY "dinput8"
 EXPORTS
+    ; dinput8
     DirectInput8Create=ProxyDirectInput8Create @1
     DllCanUnloadNow=ProxyDllCanUnloadNow PRIVATE
     DllGetClassObject=ProxyDllGetClassObject PRIVATE
