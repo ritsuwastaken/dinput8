@@ -36,7 +36,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     LINK_FLAGS "/DEF:${CMAKE_SOURCE_DIR}/src/exports.def"
 )
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE WIN32_LEAN_AND_MEAN)
+target_compile_definitions(${PROJECT_NAME} PRIVATE WIN32_LEAN_AND_MEAN DINPUT8_PROJECT_VERSION="${PROJECT_VERSION}")
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 target_link_libraries(${PROJECT_NAME} PRIVATE minhook psapi user32 gdi32)
 target_include_directories(${PROJECT_NAME} PRIVATE ${minhook_SOURCE_DIR}/include)
