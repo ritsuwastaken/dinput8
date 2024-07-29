@@ -3,8 +3,8 @@
 
 namespace detours
 {
-    void Setup();
-    void Remove();
+    void Create(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, LPVOID *lpOriginal);
+    void RemoveAll();
 }
 
 #endif // DETOURS_H
