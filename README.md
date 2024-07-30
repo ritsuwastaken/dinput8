@@ -15,7 +15,7 @@ If the file is already in use (e.g. by L2HUB), you can rename `dinput8.dll` from
 
 ## Build
 - [cmake](https://cmake.org/download/) >= 3.11
-- [VS Build Tools](https://visualstudio.microsoft.com/downloads/)
+- [VS Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
 
 ```shell
 # Configure the project
