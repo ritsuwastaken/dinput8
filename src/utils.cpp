@@ -2,7 +2,7 @@
 #include <cwctype>
 #include "utils.h"
 
-__declspec(noinline) LPVOID __cdecl utils::GetReturnAddress()
+LPVOID __cdecl utils::GetReturnAddress()
 {
     __asm
     {
