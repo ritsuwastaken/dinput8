@@ -38,7 +38,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 
         detours::Queue(L"user32.dll", "MessageBoxW", DetourMessageBoxW, (LPVOID *)&OriginalMessageBoxW);
         detours::Queue(L"gdi32.dll", "SetDeviceGammaRamp", DetourSetDeviceGammaRamp, (LPVOID *)&OriginalSetDeviceGammaRamp);
-        detours::ApplyAll();
+        detours::ApplyQueued();
 
         break;
     case DLL_PROCESS_DETACH:
