@@ -34,7 +34,7 @@ MH_STATUS QueueEnableHookApi(LPCWSTR pszModule, LPCSTR pszProcName, LPVOID pDeto
     return MH_QueueEnableHook(ppOriginal);
 }
 
-void detours::ApplyAll()
+void detours::ApplyQueued()
 {
     MH_ApplyQueued();
 }
@@ -76,7 +76,7 @@ inline void LoadLibraryCallback(HMODULE hModule)
             MH_QueueDisableHook(OriginalLoadLibraryExW);
         }
 
-        detours::ApplyAll();
+        detours::ApplyQueued();
     }
 }
 
@@ -108,7 +108,7 @@ HMODULE WINAPI DetourLoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD d
     return hModule;
 }
 
-void detours::Create(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, LPVOID *lpOriginal)
+void detours::Queue(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, LPVOID *lpOriginal)
 {
     if (MH_STATUS status = MH_Initialize(); status != MH_OK && status != MH_ERROR_ALREADY_INITIALIZED)
         return;
@@ -120,7 +120,7 @@ void detours::Create(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, 
     QueueEnableHookApi(L"kernel32.dll", "LoadLibraryExA", DetourLoadLibraryExA, (LPVOID *)&OriginalLoadLibraryExA);
     QueueEnableHookApi(L"kernel32.dll", "LoadLibraryExW", DetourLoadLibraryExW, (LPVOID *)&OriginalLoadLibraryExW);
     QueueEnableHookApi(L"kernel32.dll", "LoadLibraryW", DetourLoadLibraryW, (LPVOID *)&OriginalLoadLibraryW);
-    detours::ApplyAll();
+    detours::ApplyQueued();
 
     {
         const std::unique_lock<std::shared_mutex> lock(detoursMutex);

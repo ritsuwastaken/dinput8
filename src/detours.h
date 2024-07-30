@@ -3,9 +3,9 @@
 
 namespace detours
 {
-    void Create(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, LPVOID *lpOriginal);
+    void Queue(LPCWSTR lpLibFileName, LPCSTR lpProcName, LPVOID lpDetour, LPVOID *lpOriginal);
+    void ApplyQueued();
     void RemoveAll();
-    void ApplyAll();
 }
 
 #endif // DETOURS_H

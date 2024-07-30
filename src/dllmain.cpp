@@ -36,8 +36,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
             }
         }
 
-        detours::Create(L"user32.dll", "MessageBoxW", DetourMessageBoxW, (LPVOID *)&OriginalMessageBoxW);
-        detours::Create(L"gdi32.dll", "SetDeviceGammaRamp", DetourSetDeviceGammaRamp, (LPVOID *)&OriginalSetDeviceGammaRamp);
+        detours::Queue(L"user32.dll", "MessageBoxW", DetourMessageBoxW, (LPVOID *)&OriginalMessageBoxW);
+        detours::Queue(L"gdi32.dll", "SetDeviceGammaRamp", DetourSetDeviceGammaRamp, (LPVOID *)&OriginalSetDeviceGammaRamp);
         detours::ApplyAll();
 
         break;
