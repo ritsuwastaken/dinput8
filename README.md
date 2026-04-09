@@ -3,8 +3,6 @@ A proxy library for L2, compatible with [DxWrapper](https://github.com/elishaclo
 - Blocks API calls to [SetDeviceGammaRamp](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setdevicegammaramp) from `d3ddrv.dll` to prevent changes to the system brightness.  
 - Skips `The game may not be consistent because AGP is deactivated. Please activate AGP for consistancy.` warning.
 > ❗ You won't be able to adjust the brightness via the in-game menu or `l2.ini`. Use [ReShade](https://reshade.me/) instead.
-> #### ReShade settings   
-> Select `Levels.fx` (installed by default), set **White point** to your preference, e.g. 140-160.
 
 ## Download
 Get the latest version from [Releases](https://github.com/ritsuwastaken/dinput8/releases).
